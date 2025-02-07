@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>RawMaterials</h2>
+<a href="{% url 'rawMaterials_create' %}" class="btn btn-primary">New RawMaterials</a>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unit Price</th>
+            <th>Quantity in Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rawMaterial in rawMaterials %}
+        <tr>
+            <td>{{ rawMaterial.name }}</td>
+            <td>{{ rawMaterial.description }}</td>
+            <td>${{ rawMaterial.unit_price }}</td>
+            <td>${{ rawMaterial.quantity_in_stock }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
